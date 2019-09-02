@@ -1,0 +1,76 @@
+<!--miniprogram/pages/homeDetail/homeDetail.wxml-->
+<view class='container' bindtap='onItemClick'>
+  <view class='container-content'>
+    <view class='user-info'>
+      <image class='user-head' src='{{topic.user.avatarUrl}}' mode='aspectFill'></image>
+      <view class='user-name-time'>
+        <view class='user-name'>{{topic.user.nickName}}</view>
+        <view class='user-publish-time'>{{topic.date}}</view>
+      </view>
+    </view>
+    <view class='content'>
+      <!-- 显示文本 -->
+      <view wx:if="{{topic.content != ''}} && {{topic.images.length > 0}}">
+        <text class='content-text'>{{topic.content}}</text>
+        <block wx:for="{{topic.images}}" wx:for-index="idx">
+          <image class='content-img' src='{{item}}' mode='aspectFill' bindtap="previewImg" data-index='{{idx}}'></image>
+        </block>
+      </view>
+      <!-- 显示图片 -->
+      <view wx:elif="{{topic.images.length > 0}}">
+        <block wx:for="{{topic.images}}" wx:for-index="idx">
+          <image class='content-img' src='{{item}}' mode='aspectFill' bindtap="previewImg" data-index='{{idx}}'></image>
+        </block>
+      </view>
+      <!-- 显示文本 -->
+      <block wx:else>
+        <text class='content-text'>{{topic.content}}</text>
+      </block>
+    </view>
+  </view>
+  <!-- 显示回复列表 -->
+  <view class='replay_content' wx:if="{{replays.length > 0}}">
+    <text class='all_comment' style='background: #EDEDED' >全部评论</text>  
+    <!-- <block wx:for="{{replays}}" wx:for-index="idx">
+      <text >{{idx}} : {{item.content}}</text>
+    </block> -->
+     <view class='all_comment_list'>
+        <view class='comment_list' wx:for="{{replays}}">
+            <view class='comment_item'>
+                <view class='comment_item_head'>
+                    <view class='avatar_area'>
+                        <image class="userinfo-avatar avatar" src="{{item.user.avatarUrl}}" background-size="cover"></image>
+                    </view>
+                    <view class='text_area'>
+                        <view>
+                            <text class='author_name comment_author_name'>{{item.user.nickName}}</text>
+                        </view>
+                        <view class='publish_time'>
+                            <text class='publish_time'>{{item.date}}</text>
+                        </view>
+                    </view>
+                  </view>
+                <view>
+                    <text class='comment_content'>{{item.content}}</text>   
+                </view>
+            </view>
+            <view class='divLine' wx:if='{{index < replays.length-1}}'></view>
+        </view>
+    </view>
+  </view>
+  <!-- <view class='line'>文末</view> -->
+  <view class='like-container' bindtap='onLikeClick' wx:if='{{isLike}}'>
+    <image class='like-icon' src='../../images/topic-detail/like.png'></image>
+    <text class='like-text'>已收藏</text>
+  </view>
+  <view class='like-container' bindtap='onLikeClick' wx:else>
+    <image class='like-icon' src='../../images/topic-detail/unlike.png'></image>
+    <text class='like-text'>收藏</text>
+  </view>
+
+  <view class='replay-container' bindtap='onReplayClick'>
+    <button>回复</button>
+  </view>
+
+
+</view>
