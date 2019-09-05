@@ -17,3 +17,11 @@
 ![回复](/jiaoxiaohudong/screenshots/回复.PNG)
 ![预览图片](/jiaoxiaohudong/screenshots/预览图片.png)
 ![我的](/jiaoxiaohudong/screenshots/我的.png)
+
+## 版本修改说明
+
+9/2/2019  完成小程序的所有基本功能
+
+9/3/2019  小程序1.0.0测试版本发布上线
+
+9/4/2019  增加首次登陆用户信息授权功能界面
