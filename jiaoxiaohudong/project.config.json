@@ -6,11 +6,22 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"appid": "wx9aef094b9eb7dc88",
 	"projectname": "jiaxiaohudong",
-	"libVersion": "2.2.5",
+	"libVersion": "2.9.4",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -29,13 +40,123 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
-			"current": 0,
+			"current": 9,
 			"list": [
 				{
+					"id": 0,
+					"name": "主界面",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "登陆界面",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
 					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide"
+					"name": "详细",
+					"pathName": "pages/homeDetail/homeDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "发布",
+					"pathName": "pages/publish/publish",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "回复评论",
+					"pathName": "pages/replay/replay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布历史",
+					"pathName": "pages/history/history",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "我的收藏",
+					"pathName": "pages/collect/collect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/me/me",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "意见反馈",
+					"pathName": "pages/advance/advance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "临时切换",
+					"pathName": "pages/switch/switch",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "学习交流",
+					"pathName": "pages/bbs/bbs",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人信息修改",
+					"pathName": "pages/personInfo/personInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/record/record",
+					"pathName": "pages/record/record",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/record1/record1",
+					"pathName": "pages/record1/record1",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/record2/record2",
+					"pathName": "pages/record2/record2",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "学习交流发布",
+					"pathName": "pages/publishBBS/publishBBS",
+					"scene": null
 				}
 			]
 		}

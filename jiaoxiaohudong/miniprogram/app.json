@@ -1,6 +1,7 @@
 {
   "cloud": true,
   "pages": [
+    "pages/login/login",
     "pages/home/home",
     "pages/publish/publish",
     "pages/me/me",
@@ -8,18 +9,24 @@
     "pages/history/history",
     "pages/collect/collect",
     "pages/advance/advance",
-    "pages/replay/replay"
+    "pages/replay/replay",
+    "pages/bbs/bbs",
+    "pages/bbsDetail/bbsDetail",
+    "pages/publishBBS/publishBBS",
+    "pages/personInfo/personInfo",
+    "pages/switch/switch",
+    "pages/record/record",
+    "pages/record1/record1",
+    "pages/record2/record2"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "e起家校互动",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "selectedColor": "#d81e06",
-    "backgroungColor": "#ffffff",
     "borderStyle": "white",
     "list": [
       {
@@ -29,8 +36,8 @@
         "selectedIconPath": "images/tab/home_select.png"
       },
       {
-        "pagePath": "pages/publish/publish",
-        "text": "发布",
+        "pagePath": "pages/bbs/bbs",
+        "text": "分享",
         "iconPath": "images/tab/publish_unselect.png",
         "selectedIconPath": "images/tab/publish_select.png"
       },
@@ -41,6 +48,16 @@
         "selectedIconPath": "images/tab/me_select.png"
       }
     ]
+  },
+  "usingComponents": {
+    "van-cell": "../miniprogram_npm/vant-weapp/cell/index",
+    "van-cell-group": "../miniprogram_npm/vant-weapp/cell-group/index",
+    "van-button": "../miniprogram_npm/vant-weapp/button/index",
+    "van-rate": "../miniprogram_npm/vant-weapp/rate/index",
+    "van-notice-bar": "../miniprogram_npm/vant-weapp/notice-bar/index",
+    "van-notify": "../miniprogram_npm/vant-weapp/notify/index",
+    "van-collapse": "../miniprogram_npm/vant-weapp/collapse/index",
+    "van-collapse-item": "../miniprogram_npm/vant-weapp/collapse-item/index"
   },
   "sitemapLocation": "sitemap.json"
 }

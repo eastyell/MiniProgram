@@ -1,0 +1,42 @@
+{
+  "cloud": true,
+  "pages": [
+    "pages/login/login",
+    "pages/home/home",
+    "pages/publish/publish",
+    "pages/me/me",
+    "pages/homeDetail/homeDetail",
+    "pages/history/history",
+    "pages/collect/collect",
+    "pages/advance/advance",
+    "pages/replay/replay",
+    "pages/bbs/bbs",
+    "pages/switch/switch"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "e起家校互动---树德小学五(3)班",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#d81e06",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "通知",
+        "iconPath": "images/tab/home_unselect.png",
+        "selectedIconPath": "images/tab/home_select.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/tab/me_unselect.png",
+        "selectedIconPath": "images/tab/me_select.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

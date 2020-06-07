@@ -1,0 +1,15 @@
+<!--login.wxml-->
+<view class="container">
+  <view class='page-center'>
+    <view class='logo-wrapper'>
+      <image class='logo' src='../../images/me/logo.png'></image>
+      <text class='name'>家校互动</text>
+      <text class='name'> </text>
+      <text class='name'>----{{title}}</text>
+    </view>
+    <!-- 需要使用 button 来授权登录 -->
+    <button class='button' wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+      <text class='button-text'>e起开启家校互动</text>
+    </button>
+  </view>
+</view>

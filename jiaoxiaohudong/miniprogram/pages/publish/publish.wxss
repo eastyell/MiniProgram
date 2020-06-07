@@ -5,56 +5,82 @@
   width: 100%;
 }
 
+.contentNumStyle {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2%;
+  font-size: 14px;
+  color: #c0c6d3;
+}
+
 textarea {
   width: 700rpx;
-  height: 400rpx;
+  height: 300rpx;
   padding: 25rpx 0;
 }
 
 .text-content {
-  background-color: #f3efef;
   padding: 0 25rpx;
 }
 
-.image-group {
+.img-list {
   display: flex;
-  white-space: nowrap;
-  margin-top: 30px;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.image-group view{
+.logo { 
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 20px;
+  margin-left: 30rpx;
+}
+
+.image-group view {
+  display: flex;
+  margin-top: 30px;
+  flex-direction: row;
+  width: 100%;
+}
+
+.image-group{
   display: inline-block;
   flex-direction: row;
-  width: 375rpx;
-  height: 375rpx;
+  width: 700rpx;
+  height: 450rpx;
   margin-right: 20rpx;
   margin-left: 20rpx;
-  background-color: #cfcccc;
 }
 
-.image-group view image{
-  width: 100%;
-  height: 100%;
-  align-items: center;
+.image-group image{
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #999;
 }
 
-.image-group view icon{
+.image-group icon{
   display: inline-block;
   vertical-align: top;
   position: absolute
 }
+
 .btn-func {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   width: 100%;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   align-items: center;
 }
 
 .btn-img {
-  width: 220px;
+  width: 300px;
   height: 45px;
   line-height: 45px;
   margin-top: 20px;
@@ -65,11 +91,27 @@ textarea {
 }
 
 .btn {
-  width: 220px;
+  width: 250px;
   height: 45px;
   line-height: 45px;
   background-color: #d50310;
   color: #fff;
   border-radius: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
+  margin-top: 50px;
+}
+
+.fileset{
+  margin-top: 30px;
+  margin-left: 30rpx;
+  font-size: 14px;            /* 字体大小设置 */
+  height: 660rpx;               /*设置字体所在位置高度*/
+  text-align: center;         /*/字体水平居中*/
+  line-height: 20px;         /*字体垂直居中*/
+}
+
+.like-icon {
+  width: 48px;
+  height: 48px;
+  margin-left: 30rpx;
 }

@@ -112,3 +112,31 @@
   font-weight: bold;
   margin-right: 10px;
 }
+
+.contact-icon {
+  width: 100rpx;
+  height: 100rpx;
+}
+.btn-contact {
+  border: 0;
+  outline: none;
+  line-height: 1;
+  background: transparent;
+  width: 130rpx;
+  height: 100rpx;
+  position: absolute;
+  z-index: 8;
+}
+
+.btn-contact::after {
+  border: 0;
+}
+
+.contactBox {
+  position: fixed;
+  bottom: 160rpx;
+  right: 60rpx;
+  width: 100rpx;
+  height: 100rpx;
+}
+

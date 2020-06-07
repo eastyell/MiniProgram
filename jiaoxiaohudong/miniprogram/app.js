@@ -11,9 +11,8 @@ App({
     }
 
     this.globalData = {
-      openid: 'wx9aef094b9eb7dc88',
-      evn: 'eastyell-5279'
-      
+      //openid: 'wx9aef094b9eb7dc88',
+      evn: 'eastyell-5279'      
       
     }
   }

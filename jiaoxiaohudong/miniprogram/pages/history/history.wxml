@@ -1,4 +1,5 @@
 <!--miniprogram/pages/home/home.wxml-->
+<wxs src="../../utils/subutil.wxs" module="tools" />
 <block wx:for='{{topics}}' wx:for-index="idx">
   <view class='container' bindtap='onItemClick' data-topicId='{{item._id}}'>
     <view class='container-content'>
@@ -17,6 +18,11 @@
             <block wx:for="{{item.images}}">
               <image class='content-img' src='{{item}}' mode='aspectFill'></image>
             </block>
+            <block wx:for="{{item.files}}" wx:key wx:if="{{index < 3}}">
+              <text>\n</text>
+              <image class='ico-img' src='{{tools.fileimg(item)}}' mode='aspectFill'></image>
+              <text>  {{tools.sub(item)}}</text>          
+            </block>  
           </scroll-view>
         </block>
         <!-- 显示图片 -->

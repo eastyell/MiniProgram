@@ -1,0 +1,132 @@
+/* pages/publishBBS/publishBBS.wxss */
+
+.content {
+  height: 100%;
+  width: 100%;
+}
+
+.contentNumStyle {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2%;
+  font-size: 14px;
+  color: #c0c6d3;
+}
+
+textarea {
+  width: 700rpx;
+  height: 300rpx;
+  padding: 25rpx 0;
+}
+
+.text-content {
+  padding: 0 25rpx;
+}
+
+.img-list {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo { 
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 10px;
+  margin-left: 30rpx;
+}
+
+.record { 
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 0px;
+  margin-left: 80rpx;
+  border-radius: 50px;
+}
+
+.image-group view {
+  /* display: flex;
+  margin-top: 30px;
+  flex-direction: row;
+  width: 100%; */
+  text-align: center
+}
+
+.ziti{
+  margin-top: 30px;
+  margin-left: 10px;
+  font-size: 14px;            /* 字体大小设置 */
+  height: 660rpx;               /*设置字体所在位置高度*/
+  text-align: center;         /*/字体水平居中*/
+  line-height: 20px;         /*字体垂直居中*/
+}
+
+.image-group{
+  display: inline-block;
+  flex-direction: row;
+  width: 700rpx;
+  height: 450rpx;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+}
+
+.image-group image{
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #999;
+}
+
+.image-group icon{
+  display: inline-block;
+  vertical-align: top;
+  position: absolute
+}
+
+.icon{
+  display: inline-block;
+  vertical-align: top;
+  position: absolute
+}
+
+.btn-func {
+  /* display: flex; */
+  flex-direction: column;
+  width: 100%;
+  /* position: absolute; */
+  bottom: 0;
+  /* margin: 0 auto; */
+  align-items: center;
+}
+
+.btn-img {
+  width: 300px;
+  height: 45px;
+  line-height: 45px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  background-color: rgb(113, 98, 250);
+  color: #fff;
+  border-radius: 50px;
+}
+
+.btn {
+  width: 250px;
+  height: 45px;
+  line-height: 45px;
+  background-color: #d50310;
+  color: #fff;
+  border-radius: 50px;
+  margin-bottom: 80px;
+  margin-top: 30px;
+}
+
+.like-icon {
+  width: 48px;
+  height: 48px;
+  margin-left: 30rpx;
+}

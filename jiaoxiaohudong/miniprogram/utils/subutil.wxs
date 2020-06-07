@@ -1,0 +1,72 @@
+var sub = function (val) {
+  if (val.length == 0 || val == undefined) {
+    return;
+  }
+  if (indexOf(val,'files/')) {
+   var rep1 = getRegExp('files/(.*)', 'i'); //取 files/ 后面所有字符串
+   var code1 = val.match(rep1)[1];
+  } else if (indexOf(val,'voices/')) {
+    var rep1 = getRegExp('voices/(.*)', 'i'); //取 files/ 后面所有字符串
+    var code1 = val.match(rep1)[1];
+  }         
+  return code1;
+  // if (val.length > 17) {
+  //   return val.substring(0, 17) + "...";
+  // } else {
+  //   return val;
+  // }
+}
+
+function indexOf(arr, value) {
+  if (arr.indexOf(value) < 0) {
+      return false;
+  } else {
+      return true;
+  }
+}
+
+var fileimg = function (val) {
+  if (val.length == 0 || val == undefined) {
+    return ;
+  }
+
+  fileimg = '../../images/publish/file.jpg' 
+  if (indexOf(val,'files/')){
+    // console.log('filetype:  ' + val)   
+    var rep2 = getRegExp('files/(.*)', 'i'); //取 files/ 后面所有字符串 
+    var code2 = val.match(rep2)[1];
+  } 
+  else if (indexOf(val,'voices/')){
+    // console.log('filetype voices:  ' + val)   
+    var rep2 = getRegExp('voices/(.*)', 'i'); //取 voices/ 后面所有字符串  
+     var code2 = val.match(rep2)[1];     
+  } 
+  else {return fileimg;}
+  var rep3 = getRegExp('\.(.*)', 'i'); //取 . 后面所有字符串
+  var filetype = code2.match(rep3)[1];
+  // console.log('filetype:  ' + filetype)  
+  if ((filetype.toLowerCase() == 'doc') || (filetype.toLowerCase() == 'docx'))   {
+    var fileimg = '../../images/publish/word.jpg'
+  }
+  else if ((filetype.toLowerCase() == 'ppt') || (filetype.toLowerCase() == 'pptx')) {
+    var fileimg = '../../images/publish/ppt.jpg'
+  }
+  else if (filetype.toLowerCase() == 'pdf') {
+    var fileimg = '../../images/publish/pdf.jpg'
+  }
+  else if (filetype.toLowerCase() == 'mp3') {
+    var fileimg = '../../images/publish/voice.jpg'
+  }
+  else if ((filetype.toLowerCase() == 'xls') || (filetype.toLowerCase() == 'xlsx')) {
+    var fileimg = '../../images/publish/xls.jpg'
+  } else {
+    var fileimg = '../../images/publish/file.jpg'
+  }
+  return fileimg;
+}
+
+//module.exports.sub = sub;
+module.exports = {
+  sub: sub,
+  fileimg: fileimg
+}

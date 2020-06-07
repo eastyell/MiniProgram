@@ -1,0 +1,50 @@
+<!--pages/publishBBS/publishBBS.wxml-->
+<!--miniprogram/pages/marry/marry.wxml-->
+<wxs src="../../utils/subutil.wxs" module="tools" />
+<view class="content">
+  <form bindsubmit="formSubmit">
+    <view class="text-content">
+      <view class='text-area'>
+        <textarea name="input-content"  bindinput="getWords" maxlength='{{maxTextLen}}' type="text" placeholder="开始填写分享内容~" placeholder-class="holder" value="{{textContent}}" bindblur='getTextAreaContent'></textarea>
+        <view class='contentNumStyle'>{{textLen}}/{{maxTextLen}}</view>
+      </view>
+    </view>   
+    <view> 
+       <block wx:if="{{stat == 0}}">
+         <image class="record" src="../../images/record.png" bindtap='beginRecord'></image>             
+       </block>
+       <block wx:elif="{{stat == 1}}">
+         <image  class="record" src="../../images/stop.png" bindtap='stopRecord'></image>   
+         <text style='font-size:40rpx;text-align:center;margin-left:60rpx;'>{{voice.showSpeed}}</text> 
+       </block>
+       <block wx:elif="{{stat == 2}}">           
+          <image class="record" src="../../images/play.png" bindtap='startRecord'></image>     
+          <icon class = 'icon' type='clear' bindtap='removeVoice'></icon>  
+          <text style='font-size:40rpx;text-align:center;margin-left:70rpx;'>{{voice.showSpeed}}</text>
+       </block>
+    </view>
+    <scroll-view class="image-group" scroll-y="true">
+      <block wx:for='{{images}}' wx:for-index='idx'>
+        <!-- <view> -->
+        <image src='{{images[idx]}}' mode='aspectFill' data-index="{{idx}}" bindtap="previewImg"></image>
+        <icon type='clear' bindtap='removeImg' data-index="{{idx}}"></icon>
+        <!-- </view> -->
+      </block>
+      <image class="logo" src="../../images/publish/add.jpg" bindtap='chooseImage'></image>       
+    </scroll-view>
+       <block wx:for='{{files}}' wx:for-index='idx'>
+        <!-- <view> -->
+        <image class='like-icon' src='{{tools.fileimg( "files/" + files[idx].name)}}' mode='aspectFill' data-index="{{idx}}" bindtap="previewFile"></image>
+        <icon class = 'icon' type='clear' bindtap='removeFile' data-index="{{idx}}"></icon>
+        <text>\n</text> 
+        <text class='ziti'>{{files[idx].name}}</text>
+        <text>\n</text>
+        <!-- </view> -->
+      </block>
+      <image class="logo" src="../../images/publish/SelectFile.jpg" bindtap='chooseFiles'></image>     
+   <view class='btn-func'>
+      <button class="btn" formType='submit' open-type="getUserInfo">发布分享</button>
+    </view>
+  </form>
+
+</view>

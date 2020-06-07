@@ -1,0 +1,15 @@
+<!--pages/personInfo/personInfo.wxml-->
+<form bindsubmit="formSubmitSave">
+  <view class="text-content">
+    <text>\n\n个人信息\n\n</text>
+    <view style="display:flex;">
+      <label>姓名：</label>
+      <view class='input-content'>
+        <input name="name" bindblur='getTextName' value='{{inputValue}}' />
+      </view>
+    </view>
+  </view>
+  <view class='btn-func'>
+    <button class="btn" formType='submit' open-type="getUserInfo">保存</button>
+  </view>
+</form>

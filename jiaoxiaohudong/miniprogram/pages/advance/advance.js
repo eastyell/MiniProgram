@@ -1,4 +1,7 @@
-// miniprogram/pages/advance/advance.js
+// 意见反馈
+var that
+const db = wx.cloud.database();
+const app = getApp()
 Page({
 
   /**
@@ -9,6 +12,8 @@ Page({
     title: '',
     content: '',
     user: {},
+    id: '',
+    openid: '', 
   },
 
   /**
@@ -22,8 +27,10 @@ Page({
    * 发布
    */
   formSubmit: function (e) {
-    this.data.content = e.detail.value['input-content'];
-    // this.data.user = event.detail.userInfo;
+    this.data.title = e.detail.value['title'];
+    this.data.user = app.globalData.userInfo;
+    this.data.openid = e.detail.openid;
+    this.data.id = e.detail.id;
     if (this.data.canIUse) {
       if (this.data.title.trim() != '') {
         this.saveDataToServer();
@@ -31,19 +38,16 @@ Page({
         this.saveDataToServer();
       } else {
         wx.showToast({
-          title: '给我们反馈点意见，让我们一起变得更好~',
+          title: '提点意见吧！',
         })
       }
-
-    } else {
-      this.jugdeUserLogin();
     }
   },
   /**
    * 保存到发布集合中
    */
   saveDataToServer: function (event) {
-    var that = this;
+    that = this;
     that.showTipAndSwitchTab();
     
   },
@@ -51,12 +55,38 @@ Page({
    * 添加成功添加提示，切换页面
    */
   showTipAndSwitchTab: function (event) {
-    wx.showToast({
-      title: '反馈成功，后台会加急处理的~',
+    console.log(that.data.openid)
+    console.log(that.data.id)
+      db.collection('advance').add({
+      // data 字段表示需新增的 JSON 数据
+      data: {
+        title: that.data.title,
+        content: that.data.content,
+        date: new Date(),
+        user: that.data.user,
+        u_id: that.data.openid,
+        t_id: that.data.id,
+
+      },
+      success: function (res) {
+        wx.showToast({
+          title: '反馈成功!',
+        })
+        setTimeout(function () {
+          wx.navigateBack({
+            url: "../home/home"
+          })
+        }, 1500)
+
+      },
+      fail: console.error
     })
-    wx.navigateBack({
-      url: '../home/home',
-    })
+    // wx.showToast({
+    //   title: '反馈成功，后台会加急处理的~',
+    // })
+    // wx.navigateBack({
+    //   url: '../home/home',
+    // })
   },
  
 
@@ -64,13 +94,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.jugdeUserLogin();
+    //this.jugdeUserLogin();
   },
   /**
    * 判断用户是否登录
    */
   jugdeUserLogin: function (event) {
-    var that = this;
+     that = this;
     // 查看是否授权
     wx.getSetting({
       success(res) {
@@ -86,6 +116,11 @@ Page({
         }
       }
     })
+  },
+  /**
+ * 生命周期函数--监听页面显示
+ */
+  onShow: function () {  
   },
   
 })

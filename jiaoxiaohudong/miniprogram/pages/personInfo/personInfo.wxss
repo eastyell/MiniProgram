@@ -1,0 +1,30 @@
+/* pages/personInfo/personInfo.wxss */
+.btn {
+  width: 250px;
+  height: 45px;
+  line-height: 45px;
+  background-color: #d50310;
+  color: #fff;
+  border-radius: 50px;
+  margin-bottom: 120px;
+}
+
+.btn-func {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.text-content {
+  padding: 0 25rpx;
+}
+
+.input-content {
+  padding: 0 25rpx;
+  background-color: #eff2f3f3;
+}
+

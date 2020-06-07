@@ -3,10 +3,10 @@
   <form bindsubmit="formSubmit">
     <view class="text-content">
       <view class='input-content'>
-        <input placeholder="写个标题~" />
+        <input name = "title" placeholder="写个标题~" />
       </view>
       <view class='text-area'>
-        <textarea name="input-content" type="text" placeholder="输入详细描述~" value="{{textContent}}" bindblur='getTextAreaContent'></textarea>
+        <textarea name="input-content" type="text"  maxlength= "500" placeholder="输入详细描述~" value="{{textContent}}" bindblur='getTextAreaContent'></textarea>
       </view>
     </view>
 
@@ -14,5 +14,4 @@
       <button class="btn" formType='submit' open-type="getUserInfo">提交意见</button>
     </view>
   </form>
-
 </view>

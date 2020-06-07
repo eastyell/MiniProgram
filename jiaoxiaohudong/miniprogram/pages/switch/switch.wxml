@@ -1,0 +1,7 @@
+<!--pages/switch/switch.wxml-->
+<!-- Wellcome To My World! -->
+<block wx:for='{{topics}}' wx:for-index="idx">
+  <van-cell-group>
+    <van-cell title="{{item.title}}" value = "{{item.status}}"/>
+  </van-cell-group>
+</block>

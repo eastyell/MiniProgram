@@ -1,40 +1,62 @@
 <!--miniprogram/pages/home/home.wxml-->
+<wxs src="../../utils/subutil.wxs" module="tools" />
+<van-notice-bar left-icon="https://6561-eastyell-5279-1258777974.tcb.qcloud.la/images/notice.jpg?sign=aaf0494ac8074db3652fd48138d5054e&t=1568992106" text="{{username}}，欢迎您来到“e起家校互动”，停课不停学，这里是老师布置作业通知区！" />
+<!--| 今天访问人数：{{visitCount}}" /> -->
 <block wx:for='{{topics}}' wx:for-index="idx">
-  <view class='container' bindtap='onItemClick' data-topicId='{{item._id}}' data-openid='{{item._openid}}'>
-    <view class='container-content'>
-      <view class='user-info'>
-        <image class='user-head' src='{{item.user.avatarUrl}}' mode='aspectFill'></image>
-        <view class='user-name-time'>
-          <view class='user-name'>{{item.user.nickName}}</view>
-          <view class='user-publish-time'>{{item.date}}</view>
-        </view>
-      </view>
-      <view class='content'>
-        <!-- 显示文本 -->
-        <block wx:if="{{item.content != ''}} && {{item.images.length > 0}}">
-          <text class='content-text'>{{item.content}}</text>
-          <scroll-view class='content-scroll' scroll-x='true'>
-            <block wx:for="{{item.images}}">
-              <image class='content-img' src='{{item}}' mode='aspectFill'></image>
-            </block>
-          </scroll-view>
-        </block>
-        <!-- 显示图片 -->
-        <block wx:elif="{{item.images.length > 0}}">
-          <scroll-view class='content-scroll' scroll-x='true'>
-            <block wx:for="{{item.images}}">
-              <image class='content-img' src='{{item}}' mode='aspectFill'></image>
-            </block>
-          </scroll-view>
+	<view class='container' bindtap='onItemClick' data-topicId='{{item._id}}' data-openid='{{item._openid}}'>
+		<view class='container-content'>
+			<view class='user-info'>
+				<image class='user-head' src='{{item.user.avatarUrl}}' mode='aspectFill'></image>
+				<view class='user-name-time'>
+					<view class='user-name'>{{item.user.nickName}}</view>
+					<view class='user-publish-time'>{{item.date}}</view>
+				</view>
+			</view>
+			<view class='content'>
+				<!-- 显示文本 -->
+				<block wx:if="{{item.content != ''}} && {{item.images.length > 0}}">
+					<view style="display:flex;">
+						<view wx:if="{{item.date > ShowloginDate}}">
+							<!-- <icon type="success" size="20"/> -->
+							<image class='ico-img' src='../../images/new.png' mode='aspectFill'></image>
+						</view>
+						<!-- <icon type="success" size="20"/> -->
+						<text class='content-text'>{{item.content}}</text>
+					</view>
+					<scroll-view class='content-scroll' scroll-x='true'>
+						<block wx:for="{{item.images}}" wx:key wx:if="{{index < 6}}">
+							<image class='content-img' src='{{item}}' mode='aspectFill'></image>
+						</block>
+						<block wx:for="{{item.files}}" wx:key wx:if="{{index < 3}}">
+							<text>\n</text>
+							<image class='ico-img' src='{{tools.fileimg(item)}}' mode='aspectFill'></image>
+							<text> {{tools.sub(item)}}</text>
+						</block>
+					</scroll-view>
+				</block>
+				<!-- 显示图片 -->
+				<block wx:elif="{{item.images.length > 0}}">
+					<view style="display:flex;">
+						<view wx:if="{{item.date > ShowloginDate}}">
+							<image class='ico-img' src='../../images/new.png' mode='aspectFill'></image>
+						</view>
+						<scroll-view class='content-scroll' scroll-x='true'>
+							<block wx:for="{{item.images}}" wx:key wx:if="{{index < 6}}">
+								<image class='content-img' src='{{item}}' mode='aspectFill'></image>
+							</block>
+						</scroll-view>
+					</view>
+				</block>
+				<!-- 显示文本 -->
+				<block wx:else>
+					<text class='content-text'>{{item.content}}</text>
+				</block>
+			</view>
+		</view>
 
-        </block>
-        <!-- 显示文本 -->
-        <block wx:else>
-          <text class='content-text'>{{item.content}}</text>
-        </block>
-      </view>
-    </view>
-
-    <view class='container-line'></view>
-  </view>
+		<view class='container-line'></view>
+	</view>
 </block>
+<view wx:if="{{isvisible}}" class='publish-container' bindtap='onPublishClick'>
+	<image class='publish-icon' src='../../images/tab/publish_select.png'></image>
+</view>

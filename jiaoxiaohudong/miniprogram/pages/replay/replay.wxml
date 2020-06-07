@@ -1,14 +1,42 @@
 <!--miniprogram/pages/advance/advance.wxml-->
 <view class="content">
-  <view class="text-content">
+  <!-- <view class="text-content">
     <view class='input-content'>
       <input bindinput="bindKeyInput" placeholder="开始填写你的评论~" />
+      <view class='contentNumStyle'>{{textLen}}/{{maxTextLen}}</view>
     </view>
-
-  </view>
-
+  </view> -->
+  	<view class="text-content">
+			<view class='text-area'>
+				<textarea name="input-content" bindinput="getWords" maxlength='{{maxTextLen}}' type="text" placeholder="开始填写你的评论~" placeholder-class="holder" value="{{textContent}}" bindblur='getTextAreaContent'></textarea>
+				<view class='contentNumStyle'>{{textLen}}/{{maxTextLen}}</view>
+			</view>
+		</view>
+    <view> 
+       <block wx:if="{{stat == 0}}">
+         <image class="record" src="../../images/record.png" bindtap='beginRecord'></image>             
+       </block>
+       <block wx:elif="{{stat == 1}}">
+         <image  class="record" src="../../images/stop.png" bindtap='stopRecord'></image>   
+         <text style='font-size:40rpx;text-align:center;margin-left:60rpx;'>{{voice.showSpeed}}</text> 
+       </block>
+       <block wx:elif="{{stat == 2}}">           
+          <image class="record" src="../../images/play.png" bindtap='startRecord'></image>     
+          <icon class = 'icon' type='clear' bindtap='removeVoice'></icon>  
+          <text style='font-size:40rpx;text-align:center;margin-left:70rpx;'>{{voice.showSpeed}}</text>
+       </block>
+    </view>
+    <text>\n</text>
+     <scroll-view class="image-group" scroll-y="true">
+      <block wx:for='{{images}}' wx:for-index='idx'>
+        <!-- <view> -->
+        <image src='{{images[idx]}}' mode='aspectFill' data-index="{{idx}}" bindtap="previewImg"></image>
+        <icon type='clear' bindtap='removeImg' data-index="{{idx}}"></icon>
+        <!-- </view> -->
+      </block>
+      <image class="logo" src="../../images/publish/add.jpg" bindtap='chooseImage'></image>       
+    </scroll-view>
   <view class='btn-func'>
-    <button class="btn" bindtap='saveReplay' open-type="getUserInfo">发布</button>
+    <button class="btn" bindtap='formSubmit' open-type="getUserInfo">回复评论</button>
   </view>
-
 </view>

@@ -184,6 +184,7 @@
 
 .comment_content{
   font-size: 12pt;
+  margin-left: 102rpx;
 }
 .content{
   display: flex;
