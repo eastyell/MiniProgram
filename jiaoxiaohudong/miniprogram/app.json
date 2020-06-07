@@ -14,10 +14,7 @@
     "pages/bbsDetail/bbsDetail",
     "pages/publishBBS/publishBBS",
     "pages/personInfo/personInfo",
-    "pages/switch/switch",
-    "pages/record/record",
-    "pages/record1/record1",
-    "pages/record2/record2"
+    "pages/switch/switch"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
